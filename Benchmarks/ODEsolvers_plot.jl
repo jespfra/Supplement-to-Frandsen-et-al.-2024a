@@ -20,7 +20,7 @@ function evaluate_ODEsolvers(saveat, data)
 
 	# Colors for the plots 
 	color1 = palette([:green,:red],4)
-	color2 = palette([:purple, :grey],4)
+	color2 = palette([:orange, :grey],4)
 	color3 = palette([:blue,:yellow],4)
 	markers = [:hex, :d, :star]
 	
@@ -84,7 +84,7 @@ function evaluate_ODEsolvers(saveat, data)
 	#Axis options for the plot
 	plot!(p1,xaxis="Degrees of freedom", yaxis="Max abs error (mol/m\$^3\$)", grid=true, legend = :best)
 	plot!(p2,xaxis="Degrees of freedom", yaxis="Simulation time (s)", grid=true, legend = :best)
-	plot!(p3,xaxis="Simulation time (s)", yaxis="Abs max error (mol/m\$^3\$)", grid=true, legend = :best)
+	plot!(p3,xaxis="Simulation time (s)", yaxis="Max abs error (mol/m\$^3\$)", grid=true, legend = :best)
 
 
 	display(p1)

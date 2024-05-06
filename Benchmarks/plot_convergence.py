@@ -779,7 +779,7 @@ def plot_convergence(CADETFVdata,CADETJuliadata,CADETDGdata=[],profileData=[],sa
             
         
         # Plot Runtime error 
-        fig,ax = plt.subplots(figsize=(9, 9))
+        fig,ax = plt.subplots(figsize=(11, 9))
         for i in range(GSMData['nCellsParu'].nunique()):
             start = GSMData[GSMData['nCellsParu'] == i+1].index[0]
             stop = GSMData[GSMData['nCellsParu'] == i+1].index[-1]+1

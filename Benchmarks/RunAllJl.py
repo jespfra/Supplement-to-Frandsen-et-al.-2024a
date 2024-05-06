@@ -24,12 +24,12 @@ def run_julia_script(script_path):
 
 # Batch no binding scripts
 # run_julia_script("No_binding/Batch/LRM/CADET-Julia-LRM.jl")
-# run_julia_script("No_binding/Batch/LRMP/CADET-Julia-LRMP.jl")
+run_julia_script("No_binding/Batch/LRMP/CADET-Julia-LRMP.jl")
 # run_julia_script("No_binding/Batch/GRM/CADET-Julia-GRM.jl")
 
 # Batch Linear scripts
 # run_julia_script("Linear/Batch/LRM/CADET-Julia-LRMLinear.jl")
-run_julia_script("Linear/Batch/LRMP/CADET-Julia-LRMPLinear.jl")
+# run_julia_script("Linear/Batch/LRMP/CADET-Julia-LRMPLinear.jl")
 # run_julia_script("Linear/Batch/GRM/CADET-Julia-GRMLinear.jl")
 
 

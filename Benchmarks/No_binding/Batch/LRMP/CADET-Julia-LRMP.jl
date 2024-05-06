@@ -114,4 +114,4 @@ inlets, outlets, columns, switches, solverOptions = model_setup(nCell[4],polyDeg
 solve_model_dae(columns = columns,switches = switches,solverOptions = solverOptions, outlets = outlets, alg = IDA(linear_solver =:KLU))
 
 # Evaluate the convergence using the evaluate_convergence function 
-evaluate_IDA(c_analytical, nComp, nCell, polyDeg, 1, "LRMP", @__DIR__, alg = IDA(linear_solver =:KLU))
+evaluate_IDA(c_analytical, nComp, nCell, polyDeg, 1, "LRMP", @__DIR__, IDA(linear_solver =:KLU))
