@@ -82,9 +82,9 @@ function evaluate_ODEsolvers(saveat, data)
 	# end
 	
 	#Axis options for the plot
-	plot!(p1,xaxis="Degrees of freedom", yaxis="Max abs error (mol/m\$^3\$)", grid=true, legend = :best)
+	plot!(p1,xaxis="Degrees of freedom", yaxis="Max abs error (mol/m\$^3\$)", grid=true, legend = :best) #bottomleft
 	plot!(p2,xaxis="Degrees of freedom", yaxis="Simulation time (s)", grid=true, legend = :best)
-	plot!(p3,xaxis="Simulation time (s)", yaxis="Max abs error (mol/m\$^3\$)", grid=true, legend = :best)
+	plot!(p3,xaxis="Simulation time (s)", yaxis="Max abs error (mol/m\$^3\$)", grid=true, legend = :best) #bottomleft
 
 
 	display(p1)

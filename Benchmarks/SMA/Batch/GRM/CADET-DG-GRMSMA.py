@@ -13,11 +13,8 @@ import time
 import pandas as pd
 
 from cadet import Cadet
-# Cadet.cadet_path = r'C:\Users\jespfra\Anaconda3\bin\cadet-cli'
-# Cadet.cadet_path = r'C:\Users\Jespfra\AppData\Local\miniconda3\envs\CADETenv\bin\cadet-cli'
-# Cadet.cadet_path = r'C:\Users\pbzit\source\repos\install\bin\cadet-cli'
-Cadet.cadet_path = r'C:\Users\pbzit\source\JanDG\install\bin\cadet-cli'
-# Cadet.cadet_path = r'C:\Users\pbzit\anaconda3\envs\CADETTest\bin\cadet-cli'
+Cadet.cadet_path = r'C:\Users\pbzit\source\Test\out\install\aRELEASE\bin\cadet-cli'
+
 #%% General model options
 
 
@@ -213,17 +210,14 @@ def model(ncol,polyDeg, polyDegPore, nCellsPar,is_exact, ode,analJac=1, par_gsm=
         return [],[],[]
     
 
-
-
 #Import analytical solution from Jan
 c_analytical = pd.read_csv('Semi-analytical_GRM_SMA.csv')
 
 
 nCells = [1,2,4,8]
 polyDeg = 4
-polyDegPore = [4,6,8,10,11,12]
+polyDegPore = [4,6,8,10]
 nCellsPar = [1,2,3]
-
 
 
 exec(open('../../../benchmark_runner.py').read())
@@ -231,7 +225,10 @@ runCadetDG("GRM", c_analytical, polyDeg, nCells, False, polyDegPore, nCellsPar[0
 
 
 # Run GSM DGSEM particle phase comparison
-runCadetGSM("GRM", c_analytical, 4, 8, polyDegPore, nCellsPar)
+polyDegPore = [4,6,8,10,12]
+polyDeg = 4
+nCells = 8
+runCadetGSM("GRM", c_analytical, polyDeg, nCells, polyDegPore, nCellsPar)
 
 
 

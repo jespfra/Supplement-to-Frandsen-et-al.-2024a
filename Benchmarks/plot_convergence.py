@@ -227,7 +227,7 @@ def plot_convergence(CADETFVdata,CADETJuliadata,CADETDGdata=[],profileData=[],sa
 
     ax.set_xlabel('Time (s)', fontsize=15)
     ax.set_ylabel('Concentration (mol/m$^3$)', fontsize=15)
-    ax.legend(fontsize=10)
+    ax.legend(fontsize=10) #loc=4
     plt.savefig(os.path.join(saveLocation,'plot_profiles.svg'),format = 'svg',dpi = 1200)
     
     
@@ -747,9 +747,6 @@ def plot_convergence(CADETFVdata,CADETJuliadata,CADETDGdata=[],profileData=[],sa
         ax.set_ylabel('Max abs error (mol/m$^3$)', fontsize=25)
         ax.grid(True, which='both', linestyle='--', linewidth=0.5)
         ax.tick_params(axis='both', which='major', labelsize=22)
-        # plt.title('LRM Langmuir')
-        # plt.legend()
-        # plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=11)
         ax.legend(fontsize=20, loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=2, framealpha=1.0)
         fig.subplots_adjust(bottom=0.25)  # Adjust this value as needed
         plt.savefig(os.path.join(saveLocation,'GSM/Plot_convergence_GSM.svg'),format = 'svg',dpi = 1200, bbox_inches='tight')
@@ -794,6 +791,10 @@ def plot_convergence(CADETFVdata,CADETJuliadata,CADETDGdata=[],profileData=[],sa
         ax.set_ylabel('Max abs error (mol/m$^3$)', fontsize=25)
         ax.grid(True, which='both', linestyle='--', linewidth=0.5)
         ax.tick_params(axis='both', which='major', labelsize=22)
+        ax.set_xticks([20,40, 100])
+        #ax.xaxis.set_major_formatter(ScalarFormatter())
+        ax.set_xticklabels(['$1$','$2$', '$10^1$'])
+        ax.set_xticklabels(['$2\cdot10^1$', '$4\cdot10^1$', '$10^2$'])
         # plt.title('LRM Langmuir')
         # plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=11)
         ax.legend(fontsize=20, loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=2, framealpha=1.0)

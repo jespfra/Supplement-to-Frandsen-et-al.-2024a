@@ -14,9 +14,8 @@ import time
 import pandas as pd
 
 from cadet import Cadet
-# Cadet.cadet_path = r'C:\Users\jespfra\Anaconda3\bin\cadet-cli'
-# Cadet.cadet_path = r'C:\Users\Jespfra\AppData\Local\miniconda3\envs\CADETenv\bin\cadet-cli'
-Cadet.cadet_path = r'C:\Users\pbzit\source\JanDG\install\bin\cadet-cli'
+Cadet.cadet_path = r'C:\Users\pbzit\source\Test\out\install\aRELEASE\bin\cadet-cli'
+
 
 #%% General model options
 

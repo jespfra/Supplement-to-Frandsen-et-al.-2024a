@@ -32,9 +32,9 @@ def runCadetDG(transportModel, c_analytical, polyDeg, nCells, runKin,polyDegPore
             print(f'Column discretization {nCells[l]}')
     
             if transportModel != "GRM":
-                t, c, runtime = run_simulation(transportModel, nCells[l], polyDeg[i], True, 1)
+                t, c, runtime = run_simulation(transportModel, nCells[l], polyDeg[i], True, False)
             else:
-                t, c, runtime = run_simulation_GRM(transportModel, nCells[l], polyDeg, polyDegPore[i], nCellsPar, 1, 1)
+                t, c, runtime = run_simulation_GRM(transportModel, nCells[l], polyDeg, polyDegPore[i], nCellsPar, True, False)
     
             runtime_e.append(runtime)
             err = 0
@@ -44,9 +44,9 @@ def runCadetDG(transportModel, c_analytical, polyDeg, nCells, runKin,polyDegPore
             maxE_e.append(err)
     
             if transportModel != "GRM":
-                t, c, runtime = run_simulation(transportModel, nCells[l], polyDeg[i], False, 1)
+                t, c, runtime = run_simulation(transportModel, nCells[l], polyDeg[i], False, False)
             else:
-                t, c, runtime = run_simulation_GRM(transportModel, nCells[l], polyDeg, polyDegPore[i], nCellsPar, 0, 1)
+                t, c, runtime = run_simulation_GRM(transportModel, nCells[l], polyDeg, polyDegPore[i], nCellsPar, False, False)
     
             runtime_i.append(runtime)
             err = 0
@@ -147,7 +147,7 @@ def runCadetGSM(transportModel, c_analytical, polyDeg, nCells, polyDegPore,nCell
             err = 0
             runtime = 0
             if p == 0:
-                t, c, runtime = run_simulation_GRM(transportModel, polyDeg, nCells, polyDegPore[i], nCellsPar[p], 0, 0, True, True)
+                t, c, runtime = run_simulation_GRM(transportModel, nCells, polyDeg, polyDegPore[i], nCellsPar[p], 0, 0, True, True)
                 
                 for k in range(c.shape[1]):  # Number of components
                     idxx = f'C{k}'
@@ -162,10 +162,10 @@ def runCadetGSM(transportModel, c_analytical, polyDeg, nCells, polyDegPore,nCell
             runtime = 0
             # For multiple particle cell, we do not want to run more than 10 polynomials degrees in the particle phase
             if nCellsPar[p]>1 and polyDegPore[i]>10:
-                continue 
+                print("Simulation skipped") 
             else:
                 # For par elements = 1
-                t, c, runtime = run_simulation_GRM(transportModel, 8, 4, polyDegPore[i], nCellsPar[p], 0, 0, True, False)
+                t, c, runtime = run_simulation_GRM(transportModel, nCells, polyDeg, polyDegPore[i], nCellsPar[p], 0, 0, True, False)
                 for k in range(c.shape[1]):  # Number of components
                     idxx = f'C{k}'
                     err = max([err, abs(c[:, k] - c_analytical[idxx][:]).max()])
@@ -186,7 +186,7 @@ def runCadetGSM(transportModel, c_analytical, polyDeg, nCells, polyDegPore,nCell
 
             
             # Save results everytime a simulation as been carried out 
-            convergenceDataDG = pd.DataFrame({'DOF': DOF, 'nCellu': nCellu,'polyDegPoreu': polyDegPoreu, 'polyDegPoreu' : polyDegPoreu, 'nCellsParu' : nCellsParu,'runtime_e': runtime_e,'maxE_e': maxE_e,'runtime_i': runtime_i,'maxE_i': maxE_i})
+            convergenceDataDG = pd.DataFrame({'DOF': DOF, 'nCellu': nCellu,'polyDegu': polyDegu, 'polyDegPoreu' : polyDegPoreu, 'nCellsParu' : nCellsParu,'runtime_e': runtime_e,'maxE_e': maxE_e,'runtime_i': runtime_i,'maxE_i': maxE_i})
             #Save data in a CSV file
             # save results of GSM-DGSEM comparisons in GSM folder
             convergenceDataDG.to_csv('GSM/CADETDGConvergence.csv')

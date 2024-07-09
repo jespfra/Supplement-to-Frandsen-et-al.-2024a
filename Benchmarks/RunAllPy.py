@@ -31,7 +31,7 @@ def run_python_script(script_path):
 
 # Batch Langmuir scripts
 # run_python_script("Langmuir/Batch/LRM/CADET-FV-LRMLangmuir.py")
-run_python_script("Langmuir/Batch/LRM/CADET-DG-LRMLangmuir.py")
+# run_python_script("Langmuir/Batch/LRM/CADET-DG-LRMLangmuir.py")
 # run_python_script("Langmuir/Batch/LRMP/CADET-FV-LRMPLangmuir.py")
 # run_python_script("Langmuir/Batch/LRMP/CADET-DG-LRMPLangmuir.py")
 # run_python_script("Langmuir/Batch/GRM/CADET-FV-GRMLangmuir.py")

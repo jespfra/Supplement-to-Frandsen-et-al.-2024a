@@ -14,8 +14,7 @@ import timeit
 import pandas as pd
 
 from cadet import Cadet
-# Cadet.cadet_path = r'C:\Users\jespfra\Anaconda3\bin\cadet-cli'
-Cadet.cadet_path = r'C:\Users\pbzit\source\JanDG\install\bin\cadet-cli'
+Cadet.cadet_path = r'C:\Users\pbzit\source\Test\out\install\aRELEASE\bin\cadet-cli'
 
 #%% General model options
 
@@ -218,10 +217,12 @@ polyDegPore = [4,5,6,8,10]
 nCellsPar = [1,2,3]
 
 
-
 exec(open('../../../benchmark_runner.py').read())
-runCadetDG("GRM", c_analytical, polyDeg, nCells, True, polyDegPore, nCellsPar)
+runCadetDG("GRM", c_analytical, polyDeg, nCells, True, polyDegPore, nCellsPar[0])
 
 
 # Run GSM DGSEM particle phase comparison
-runCadetGSM("GRM", c_analytical, 4, 8, polyDegPore, nCellsPar)
+polyDegPore = [4,6,8,10,12]
+polyDeg = 4
+nCells = 8
+runCadetGSM("GRM", c_analytical, polyDeg, nCells, polyDegPore, nCellsPar)
