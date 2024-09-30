@@ -151,6 +151,7 @@ def model(ncol,polydeg,exactInt,ode,analJac=1):
     model.root.input.solver.time_integrator.reltol = 1e-10 #Relative tolerance
     model.root.input.solver.time_integrator.init_step_size = 1e-10
     model.root.input.solver.time_integrator.max_steps = 1000000
+    model.root.input.solver.time_integrator.USE_MODIFIED_NEWTON = 1
 
 
 
